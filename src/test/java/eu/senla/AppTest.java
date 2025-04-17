@@ -12,4 +12,7 @@ public class AppTest {
     driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     driver.close();
   }
+  {
+
+  }
 }
