@@ -10,11 +10,6 @@ public class AppTest {
     public void firstTest() {
         WebDriver driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         driver.close();
     }
 }
