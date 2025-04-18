@@ -11,6 +11,8 @@
     <url>http://maven.apache.org</url>
 
     <properties>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.12.2</junit.version>
         <checkstyle-maven-plugin.version>3.6.0</checkstyle-maven-plugin.version>
@@ -45,16 +47,15 @@
                     <suppressionsLocation>/config/checkstyle-suppressions.xml</suppressionsLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <failsOnError>true</failsOnError>
-                    <consoleOutput>true</consoleOutput>
-                    <outputFile>${project.build.directory}/checkstyle/checkstyle-report.xml</outputFile>
+<!--                    <consoleOutput>true</consoleOutput>-->
                 </configuration>
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
