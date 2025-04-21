@@ -47,7 +47,7 @@
                     <suppressionsLocation>/config/checkstyle-suppressions.xml</suppressionsLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <failsOnError>true</failsOnError>
-<!--                    <consoleOutput>true</consoleOutput>-->
+                    <consoleOutput>true</consoleOutput>
                 </configuration>
                 <executions>
                     <execution>
@@ -66,7 +66,6 @@
                         <phase>test</phase>
                         <goals>
                             <goal>test</goal>
-                            <!--              <goal>report-only</goal>-->
                         </goals>
                     </execution>
                 </executions>

@@ -5,9 +5,17 @@
         "https://checkstyle.org/dtds/suppressions_1_0.dtd">
 
 <suppressions>
+
+    <!-- Doesn't check that a package-info.java file exists for each package. -->
+    <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage      -->
     <suppress checks="JavadocPackage" files=""/>
+
+
+    <!-- Doesn't check for Javadoc comments.              -->
+    <!-- See http://checkstyle.sf.net/config_javadoc.html -->
 <!--    <suppress files="" checks="JavadocMethod"/>-->
 <!--    <suppress files="" checks="JavadocType"/>-->
 <!--    <suppress files="" checks="JavadocVariable"/>-->
 <!--    <suppress files="" checks="JavadocStyle"/>-->
+
 </suppressions>
