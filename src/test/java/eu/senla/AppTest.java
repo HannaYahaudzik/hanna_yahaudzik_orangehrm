@@ -35,7 +35,7 @@ public class AppTest {
             driver.findElement(By.xpath(".//label[text()='Username']/../..//input"));
 
             // Dropdown 'User Role'
-            driver.findElement(By.xpath(".//label[text()='User Role']/../../div[2]")).click();
+            driver.findElement(By.xpath(".//label[text()='User Role']/../..//div[text()='-- Select --']")).click();
             driver.findElement(By.xpath(".//div/span[text()='Admin']")).click();
             Thread.sleep(TIMEOUT);
 
@@ -45,7 +45,7 @@ public class AppTest {
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            driver.close();
+            driver.quit();
         }
     }
 }
