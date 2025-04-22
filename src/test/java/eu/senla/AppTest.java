@@ -49,6 +49,5 @@ public class AppTest {
         } finally {
             driver.close();
         }
-
     }
 }
