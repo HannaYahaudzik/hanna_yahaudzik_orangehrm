@@ -42,8 +42,6 @@ public class AppTest {
             driver.findElement(By.xpath(".//button[text()=' Search ']"));
             driver.findElement(By.xpath(".//button[text()=' Add ']"));
 
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
