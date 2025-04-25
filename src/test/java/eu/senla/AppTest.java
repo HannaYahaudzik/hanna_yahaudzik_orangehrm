@@ -1,33 +1,51 @@
 package eu.senla;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest extends TestCase {
-    /**
-     * Create the test case.
-     *
-     * @param testName name of the test case
-     */
-    public AppTest(final String testName) {
-        super(testName);
-    }
+public class AppTest {
 
     /**
-     * @return the suite of tests being tested
+     * Timeout 5 seconds.
      */
-    public static Test suite() {
-        return new TestSuite(AppTest.class);
-    }
+    public static final int TIMEOUT = 5000;
 
-    /**
-     * Rigourous Test :-).
-     */
-    public void testApp() {
-        assertTrue(true);
+    @Test
+    public void firstTest() {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        try {
+            driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+            Thread.sleep(TIMEOUT);
+
+            // Login page
+            driver.findElement(By.xpath(".//h5[text()='Login']"));
+            driver.findElement(By.name("username")).sendKeys("Admin");
+            driver.findElement(By.name("password")).sendKeys("admin123");
+            driver.findElement(By.tagName("button")).click();
+            Thread.sleep(TIMEOUT);
+
+            // Dashboard page
+            driver.findElement(By.xpath(".//span[text()='Admin']")).click();
+            Thread.sleep(TIMEOUT);
+
+            // Admin page
+            driver.findElement(By.xpath(".//label[text()='Username']/../..//input"));
+
+            // Dropdown 'User Role'
+            driver.findElement(By.xpath(".//label[text()='User Role']/../..//div[text()='-- Select --']")).click();
+            driver.findElement(By.xpath(".//div/span[text()='Admin']")).click();
+            Thread.sleep(TIMEOUT);
+
+            driver.findElement(By.xpath(".//button[text()=' Search ']"));
+            driver.findElement(By.xpath(".//button[text()=' Add ']"));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            driver.quit();
+        }
     }
 }
