@@ -18,7 +18,7 @@
         <checkstyle-maven-plugin.version>3.6.0</checkstyle-maven-plugin.version>
         <maven-surefire.version>2.19</maven-surefire.version>
         <spotless.version>2.44.3</spotless.version>
-        <selenium.version>4.31.0</selenium.version>
+        <selenium.version>4.32.0</selenium.version>
     </properties>
 
     <dependencies>
