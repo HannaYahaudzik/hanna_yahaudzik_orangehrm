@@ -7,48 +7,23 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 
-    private static final String USERNAME = "Admin";
-    private static final String PASSWORD = "admin123";
+    private final String USERNAME = "Admin";
+    private final String PASSWORD = "admin123";
 
     private final By usernameBy = By.name("username");
     private final By passwordBy = By.name("password");
     private final By loginButtonBy = By.tagName("button");
 
-    private WebElement usernameInput;
-    private WebElement passwordInput;
-    private WebElement loginButton;
-
-    private void setUsernameInput() {
-        usernameInput = Waits.waitVisibilityOfElementLocated(usernameBy);
-    }
-
-    private void setPasswordInput() {
-        passwordInput = Waits.waitVisibilityOfElementLocated(passwordBy);
-    }
-
-    private void setLoginButton() {
-        loginButton = Waits.waitVisibilityOfElementLocated(loginButtonBy);
-    }
-
     public WebElement getUsernameInput() {
-        if (usernameInput == null) {
-            setUsernameInput();
-        }
-        return usernameInput;
+        return Waits.waitVisibilityOfElementLocated(usernameBy);
     }
 
     public WebElement getPasswordInput() {
-        if (passwordInput == null) {
-            setPasswordInput();
-        }
-        return passwordInput;
+        return Waits.waitVisibilityOfElementLocated(passwordBy);
     }
 
     public WebElement getLoginButton() {
-        if (loginButton == null) {
-            setLoginButton();
-        }
-        return loginButton;
+        return Waits.waitVisibilityOfElementLocated(loginButtonBy);
     }
 
     public HomePage loginUser(String username, String password) {

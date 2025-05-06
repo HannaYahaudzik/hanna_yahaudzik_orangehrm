@@ -8,7 +8,6 @@ public class LoginTest extends GeneralTest {
 
     @Test
     public void loginSuccess() {
-//        driver.get(URL);
         new LoginPage().loginValidUser();
 
     }
