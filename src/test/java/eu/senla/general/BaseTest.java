@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 
-public class GeneralTest {
+public class BaseTest {
 
     protected final String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
