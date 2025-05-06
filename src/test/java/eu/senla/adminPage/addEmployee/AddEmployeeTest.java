@@ -1,7 +1,7 @@
 package eu.senla.adminPage.addEmployee;
 
 import eu.senla.general.GeneralTest;
-import eu.senla.utils.login.Login;
+import eu.senla.pageObject.login.LoginPage;
 import eu.senla.waits.Waits;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ public class AddEmployeeTest extends GeneralTest {
     public void addEmployee() {
 
         driver.get(URL);
-        Login.loginSuccess();
+        new LoginPage().loginValidUser();
 
         Waits.waitVisibilityOfElementLocated(By.xpath(".//span[text()='Admin']"))
                 .click();

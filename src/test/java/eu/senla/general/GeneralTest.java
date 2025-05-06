@@ -14,6 +14,7 @@ public class GeneralTest {
     @BeforeEach
     public void initDriver() {
         driver = Driver.getInstance();
+        driver.get(URL);
     }
 
     @AfterEach
