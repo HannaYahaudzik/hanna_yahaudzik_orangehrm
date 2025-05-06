@@ -23,9 +23,6 @@ public class Waits {
     }
 
     public static WebElement waitVisibilityOfElementLocated(By locator) {
-        return new WebDriverWait(Driver.getInstance(), TIMEOUT)
-                .withMessage("The element isn't visible")
-                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return wait(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-
 }
