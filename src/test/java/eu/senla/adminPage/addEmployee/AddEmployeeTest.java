@@ -6,14 +6,12 @@ import org.junit.jupiter.api.Test;
 
 public class AddEmployeeTest extends BaseTest {
 
-    @Test
-    public void addEmployee() {
-        new LoginPage()
-                .loginValidUser()
-                .clickAdminMenu()
-                .clickAddButton()
-                .fillAddUserForm("Admin", "Orange  Test", "Enabled",
-                        "Test Username", "Pa$$w0rd");
-
-    }
+  @Test
+  public void addEmployee() {
+    new LoginPage()
+        .loginValidUser()
+        .clickPimMenu()
+        .clickAddButton()
+        .fillAddEmployeeForm("Test first name", "Test middle name", "Test last name");
+  }
 }

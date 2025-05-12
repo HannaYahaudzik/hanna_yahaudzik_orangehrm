@@ -7,19 +7,18 @@ import org.openqa.selenium.WebDriver;
 
 public class BaseTest {
 
-    protected final String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+  protected final String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
-    protected WebDriver driver;
+  protected WebDriver driver;
 
-    @BeforeEach
-    public void initDriver() {
-        driver = Driver.getInstance();
-        driver.get(URL);
-    }
+  @BeforeEach
+  public void initDriver() {
+    driver = Driver.getInstance();
+    driver.get(URL);
+  }
 
-    @AfterEach
-    public void quitDriver() {
-        Driver.quit();
-    }
-
+  @AfterEach
+  public void quitDriver() {
+    Driver.quit();
+  }
 }
