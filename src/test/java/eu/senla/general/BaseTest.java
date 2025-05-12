@@ -3,22 +3,22 @@ package eu.senla.general;
 import eu.senla.driver.Driver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
 
 public class BaseTest {
 
-  protected final String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    /**
+     * A start url.
+     */
+    private final String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
-  protected WebDriver driver;
 
-  @BeforeEach
-  public void initDriver() {
-    driver = Driver.getInstance();
-    driver.get(URL);
-  }
+    @BeforeEach
+    public final void initDriver() {
+        Driver.getInstance().get(URL);
+    }
 
-  @AfterEach
-  public void quitDriver() {
-    Driver.quit();
-  }
+    @AfterEach
+    public final void quitDriver() {
+        Driver.quit();
+    }
 }

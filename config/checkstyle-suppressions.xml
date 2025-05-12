@@ -10,12 +10,8 @@
     <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage      -->
     <suppress checks="JavadocPackage" files=""/>
 
-
-    <!-- Doesn't check for Javadoc comments.              -->
-    <!-- See http://checkstyle.sf.net/config_javadoc.html -->
-<!--    <suppress files="" checks="JavadocMethod"/>-->
-<!--    <suppress files="" checks="JavadocType"/>-->
-<!--    <suppress files="" checks="JavadocVariable"/>-->
-<!--    <suppress files="" checks="JavadocStyle"/>-->
+    <!-- Checks for Naming Conventions.                  -->
+    <!-- See http://checkstyle.sf.net/config_naming.html -->
+    <suppress files="" checks="MemberName"/>
 
 </suppressions>

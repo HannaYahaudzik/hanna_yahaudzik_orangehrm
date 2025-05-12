@@ -5,10 +5,13 @@ import org.openqa.selenium.By;
 
 public class PimPage {
 
-  private final By addButton = By.xpath(".//button[text()=' Add ']");
+    /**
+     * Locator for a button Add.
+     */
+    private final By addButton = By.xpath(".//button[text()=' Add ']");
 
-  public AddEmployeePage clickAddButton() {
-    Wait.waitVisibilityOfElementLocated(addButton).click();
-    return new AddEmployeePage();
-  }
+    public final AddEmployeePage clickAddButton() {
+        Wait.waitVisibilityOfElementLocated(addButton).click();
+        return new AddEmployeePage();
+    }
 }
