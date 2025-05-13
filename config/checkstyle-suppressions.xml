@@ -10,7 +10,7 @@
     <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage      -->
     <suppress checks="JavadocPackage" files=""/>
 
-    <!-- Checks for Naming Conventions.                  -->
+    <!-- Doesn't check for Naming Conventions.                  -->
     <!-- See http://checkstyle.sf.net/config_naming.html -->
     <suppress files="" checks="MemberName"/>
 
