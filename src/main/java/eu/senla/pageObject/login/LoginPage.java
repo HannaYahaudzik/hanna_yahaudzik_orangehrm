@@ -20,6 +20,14 @@ public class LoginPage {
     private final String PASSWORD = "admin123";
 
     /**
+     * Locator for a login title.
+     */
+    private final By loginTitle = By.className("orangehrm-login-title");
+    /**
+     * Locator for an error message.
+     */
+    private final By errorText = By.className("oxd-alert-content-text");
+    /**
      * Locator for an input Username.
      */
     private final By usernameBy = By.name("username");
@@ -32,14 +40,23 @@ public class LoginPage {
      */
     private final By loginButtonBy = By.tagName("button");
 
-    public final void loginUser(final String username, final String password) {
+    public final LoginPage loginUser(final String username, final String password) {
         Wait.waitVisibilityOfElementLocated(usernameBy).sendKeys(username);
         Wait.waitVisibilityOfElementLocated(passwordBy).sendKeys(password);
         Wait.waitVisibilityOfElementLocated(loginButtonBy).click();
+        return this;
     }
 
     public final HomePage loginValidUser() {
         loginUser(USERNAME, PASSWORD);
         return new HomePage();
+    }
+
+    public final String getTitle(){
+        return Wait.waitVisibilityOfElementLocated(loginTitle).getText();
+    }
+
+    public final String getErrorText(){
+        return Wait.waitVisibilityOfElementLocated(errorText).getText();
     }
 }
