@@ -1,5 +1,6 @@
 package eu.senla.pageObject.login;
 
+import eu.senla.entity.User;
 import eu.senla.pageObject.login.homePage.HomePage;
 import eu.senla.wait.Wait;
 import org.openqa.selenium.By;
@@ -46,15 +47,19 @@ public class LoginPage {
     private final By loginButtonBy = By.tagName("button");
 
 
-    public final LoginPage loginUser(final String username, final String password) {
-        Wait.waitVisibilityOfElementLocated(usernameBy).sendKeys(username);
-        Wait.waitVisibilityOfElementLocated(passwordBy).sendKeys(password);
+    public final LoginPage loginUser(final User user) {
+        Wait.waitVisibilityOfElementLocated(usernameBy).sendKeys(user.getUsername());
+        Wait.waitVisibilityOfElementLocated(passwordBy).sendKeys(user.getPassword());
         Wait.waitVisibilityOfElementLocated(loginButtonBy).click();
         return this;
     }
 
     public final HomePage loginValidUser() {
-        loginUser(USERNAME, PASSWORD);
+        User user = new User.UserBuilder()
+                .username(USERNAME)
+                .password(PASSWORD)
+                .build();
+        loginUser(user);
         return new HomePage();
     }
 

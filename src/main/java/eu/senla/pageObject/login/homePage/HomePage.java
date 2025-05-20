@@ -8,6 +8,11 @@ import org.openqa.selenium.By;
 public class HomePage {
 
     /**
+     * Locator for a page header.
+     */
+    private final By pageHeaderBy = By.className("oxd-text--h6");
+
+    /**
      * Locator for a point 'Admin' into menu.
      */
     private final By adminMenuBy = By.xpath(".//span[text()='Admin']");
@@ -16,6 +21,10 @@ public class HomePage {
      * Locator for a point 'PIM' into menu.
      */
     private final By pimMenuBy = By.xpath(".//span[text()='PIM']");
+
+    public final String getPageHeader() {
+        return Wait.waitVisibilityOfElementLocated(pageHeaderBy).getText();
+    }
 
     public final AdminPage clickAdminMenu() {
         Wait.waitVisibilityOfElementLocated(adminMenuBy).click();
