@@ -14,4 +14,10 @@ public class LoginTest extends BaseTest {
         new LoginPage().loginValidUser().getPageHeader();
         Assertions.assertTrue(Driver.getInstance().getCurrentUrl().contains("/dashboard/index"));
     }
+
+    @Test
+    public void loginFailed() {
+        String errorMessage = new LoginPage().loginFakerUser().getErrorMessage();
+        Assertions.assertEquals("Invalid credentials", errorMessage);
+    }
 }

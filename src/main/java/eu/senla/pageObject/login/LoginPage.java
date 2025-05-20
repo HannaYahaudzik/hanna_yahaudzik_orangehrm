@@ -1,5 +1,6 @@
 package eu.senla.pageObject.login;
 
+import com.github.javafaker.Faker;
 import eu.senla.entity.User;
 import eu.senla.pageObject.login.homePage.HomePage;
 import eu.senla.wait.Wait;
@@ -46,11 +47,39 @@ public class LoginPage {
      */
     private final By loginButtonBy = By.tagName("button");
 
+    public final String getErrorMessage(){
+        return Wait.waitVisibilityOfElementLocated(errorText).getText();
+    }
 
-    public final LoginPage loginUser(final User user) {
-        Wait.waitVisibilityOfElementLocated(usernameBy).sendKeys(user.getUsername());
-        Wait.waitVisibilityOfElementLocated(passwordBy).sendKeys(user.getPassword());
+    public final LoginPage enterUsername(final String username){
+        Wait.waitVisibilityOfElementLocated(usernameBy).sendKeys(username);
+        return this;
+    }
+
+    public final LoginPage enterPassword(final String password){
+        Wait.waitVisibilityOfElementLocated(passwordBy).sendKeys(password);
+        return this;
+    }
+
+    public final LoginPage clickLoginButton(){
         Wait.waitVisibilityOfElementLocated(loginButtonBy).click();
+        return this;
+    }
+
+    private final LoginPage loginUser(final User user) {
+        enterUsername(user.getUsername());
+        enterPassword(user.getPassword());
+        clickLoginButton();
+        return this;
+    }
+
+    public final LoginPage loginFakerUser(){
+        Faker faker = new Faker();
+        User user = new User.UserBuilder()
+                .username(String.valueOf(faker.name()))
+                .password(String.valueOf(faker.name()))
+                .build();
+        loginUser(user);
         return this;
     }
 
