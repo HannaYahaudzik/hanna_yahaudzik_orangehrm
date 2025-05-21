@@ -1,10 +1,15 @@
 package eu.senla.pageObject.login;
 
 import com.github.javafaker.Faker;
+import eu.senla.driver.Driver;
 import eu.senla.entity.User;
 import eu.senla.pageObject.login.homePage.HomePage;
 import eu.senla.wait.Wait;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LoginPage {
 
@@ -33,9 +38,11 @@ public class LoginPage {
     private final By errorText = By.className("oxd-alert-content-text");
 
     /**
-     * Locator for an error message.
+     * Locator for an error message of required field.
      */
     private final By requiredText = By.className("oxd-input-field-error-message");
+
+    private final By errorInput = By.className("oxd-input--error");
 
     /**
      * Locator for an input Username.
@@ -107,5 +114,12 @@ public class LoginPage {
 
     public final String getRequiredText() {
         return Wait.waitVisibilityOfElementLocated(requiredText).getText();
+    }
+
+    public final List<String> getRequiredFieldNameWithError() {
+        getRequiredText();
+        return Driver.getInstance().findElements(errorInput).stream()
+                .map((f)->f.getDomAttribute("name"))
+                .collect(Collectors.toList());
     }
 }

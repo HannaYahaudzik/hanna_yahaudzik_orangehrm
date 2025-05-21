@@ -3,6 +3,7 @@ package eu.senla.wait;
 import eu.senla.driver.Driver;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

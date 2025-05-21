@@ -7,8 +7,11 @@ import eu.senla.pageObject.login.LoginPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 
@@ -27,15 +30,15 @@ public class LoginTest extends BaseTest {
 
     @ParameterizedTest
     @MethodSource("requiredFieldData")
-    public void testRequiredField(User user) {
-        Assertions.assertEquals("Required", new LoginPage().loginUser(user).getRequiredText());
+    public void testRequiredField(User user, List<String> fieldName) {
+        Assertions.assertEquals(fieldName, new LoginPage().loginUser(user).getRequiredFieldNameWithError());
     }
 
-    static Stream<User> requiredFieldData(){
+    static Stream<Arguments> requiredFieldData() {
         return Stream.of(
-                new User.UserBuilder().username("").password("").build(),
-                new User.UserBuilder().username("username").password("").build(),
-                new User.UserBuilder().username("").password("password").build()
+                Arguments.arguments(new User.UserBuilder().username("").password("").build(), Arrays.asList("username", "password")),
+                Arguments.arguments(new User.UserBuilder().username("username").password("").build(), Arrays.asList("password")),
+                Arguments.arguments(new User.UserBuilder().username("").password("password").build(), Arrays.asList("username"))
         );
     }
 }
