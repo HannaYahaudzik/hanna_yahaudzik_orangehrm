@@ -33,6 +33,11 @@ public class LoginPage {
     private final By errorText = By.className("oxd-alert-content-text");
 
     /**
+     * Locator for an error message.
+     */
+    private final By requiredText = By.className("oxd-input-field-error-message");
+
+    /**
      * Locator for an input Username.
      */
     private final By usernameBy = By.name("username");
@@ -66,7 +71,7 @@ public class LoginPage {
         return this;
     }
 
-    private final LoginPage loginUser(final User user) {
+    public final LoginPage loginUser(final User user) {
         enterUsername(user.getUsername());
         enterPassword(user.getPassword());
         clickLoginButton();
@@ -98,5 +103,9 @@ public class LoginPage {
 
     public final String getErrorText() {
         return Wait.waitVisibilityOfElementLocated(errorText).getText();
+    }
+
+    public final String getRequiredText() {
+        return Wait.waitVisibilityOfElementLocated(requiredText).getText();
     }
 }
