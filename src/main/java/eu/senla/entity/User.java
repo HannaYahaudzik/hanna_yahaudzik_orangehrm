@@ -1,38 +1,38 @@
 package eu.senla.entity;
 
 
-public class User {
+public class User{
     private final String username;
     private final String password;
 
-    public User(UserBuilder builder) {
+    public User(final UserBuilder builder) {
         this.username = builder.username;
         this.password = builder.password;
     }
 
-    public String getUsername() {
+    public final String getUsername() {
         return username;
     }
 
-    public String getPassword() {
+    public final String getPassword() {
         return password;
     }
 
     public static class UserBuilder {
-        public String username;
-        public String password;
+        private String username;
+        private String password;
 
-        public UserBuilder username(final String username) {
+        public final UserBuilder username(final String username) {
             this.username = username;
             return this;
         }
 
-        public UserBuilder password(final String password) {
+        public final UserBuilder password(final String password) {
             this.password = password;
             return this;
         }
 
-        public User build() {
+        public final User build() {
             return new User(this);
         }
     }

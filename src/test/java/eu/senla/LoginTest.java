@@ -28,10 +28,15 @@ public class LoginTest extends BaseTest {
         Assertions.assertEquals("Invalid credentials", new LoginPage().loginFakerUser().getErrorMessage());
     }
 
+    /**
+     *
+     * @param user
+     * @param expectedRequiredFieldName
+     */
     @ParameterizedTest
     @MethodSource("requiredFieldData")
-    public void testRequiredField(User user, List<String> fieldName) {
-        Assertions.assertEquals(fieldName, new LoginPage().loginUser(user).getRequiredFieldNameWithError());
+    public void testRequiredField(final User user, final List<String> expectedRequiredFieldName) {
+        Assertions.assertEquals(expectedRequiredFieldName, new LoginPage().loginUser(user).getRequiredFieldNameWithError());
     }
 
     static Stream<Arguments> requiredFieldData() {

@@ -6,29 +6,20 @@ import eu.senla.entity.User;
 import eu.senla.pageObject.login.homePage.HomePage;
 import eu.senla.wait.Wait;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class LoginPage {
 
-  /*
-    A valid user credential.
-   */
-
-    /**
-     * A valid username.
+    /*
+      A valid user credential.
      */
     private final String USERNAME = "Admin";
-
-    /**
-     * A valid password.
-     */
     private final String PASSWORD = "admin123";
 
     /**
-     * Locator for a login title.
+     * Locators.
      */
     private final By loginTitle = By.className("orangehrm-login-title");
 
@@ -41,39 +32,27 @@ public class LoginPage {
      * Locator for an error message of required field.
      */
     private final By requiredText = By.className("oxd-input-field-error-message");
-
     private final By errorInput = By.className("oxd-input--error");
 
-    /**
-     * Locator for an input Username.
-     */
     private final By usernameBy = By.name("username");
-
-    /**
-     * Locator for an input Password.
-     */
     private final By passwordBy = By.name("password");
-
-    /**
-     * Locator for a button Login.
-     */
     private final By loginButtonBy = By.tagName("button");
 
-    public final String getErrorMessage(){
+    public final String getErrorMessage() {
         return Wait.waitVisibilityOfElementLocated(errorText).getText();
     }
 
-    public final LoginPage enterUsername(final String username){
+    public final LoginPage enterUsername(final String username) {
         Wait.waitVisibilityOfElementLocated(usernameBy).sendKeys(username);
         return this;
     }
 
-    public final LoginPage enterPassword(final String password){
+    public final LoginPage enterPassword(final String password) {
         Wait.waitVisibilityOfElementLocated(passwordBy).sendKeys(password);
         return this;
     }
 
-    public final LoginPage clickLoginButton(){
+    public final LoginPage clickLoginButton() {
         Wait.waitVisibilityOfElementLocated(loginButtonBy).click();
         return this;
     }
@@ -85,7 +64,7 @@ public class LoginPage {
         return this;
     }
 
-    public final LoginPage loginFakerUser(){
+    public final LoginPage loginFakerUser() {
         Faker faker = new Faker();
         User user = new User.UserBuilder()
                 .username(String.valueOf(faker.name()))
@@ -119,7 +98,7 @@ public class LoginPage {
     public final List<String> getRequiredFieldNameWithError() {
         getRequiredText();
         return Driver.getInstance().findElements(errorInput).stream()
-                .map((f)->f.getDomAttribute("name"))
+                .map((f) -> f.getDomAttribute("name"))
                 .collect(Collectors.toList());
     }
 }
