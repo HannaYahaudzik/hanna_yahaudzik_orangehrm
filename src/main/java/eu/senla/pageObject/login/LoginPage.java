@@ -6,7 +6,6 @@ import eu.senla.entity.User;
 import eu.senla.pageObject.login.homePage.HomePage;
 import eu.senla.wait.Wait;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,21 +58,21 @@ public class LoginPage {
      */
     private final By loginButtonBy = By.tagName("button");
 
-    public final String getErrorMessage(){
+    public final String getErrorMessage() {
         return Wait.waitVisibilityOfElementLocated(errorText).getText();
     }
 
-    public final LoginPage enterUsername(final String username){
+    public final LoginPage enterUsername(final String username) {
         Wait.waitVisibilityOfElementLocated(usernameBy).sendKeys(username);
         return this;
     }
 
-    public final LoginPage enterPassword(final String password){
+    public final LoginPage enterPassword(final String password) {
         Wait.waitVisibilityOfElementLocated(passwordBy).sendKeys(password);
         return this;
     }
 
-    public final LoginPage clickLoginButton(){
+    public final LoginPage clickLoginButton() {
         Wait.waitVisibilityOfElementLocated(loginButtonBy).click();
         return this;
     }
@@ -85,7 +84,7 @@ public class LoginPage {
         return this;
     }
 
-    public final LoginPage loginFakerUser(){
+    public final LoginPage loginFakerUser() {
         Faker faker = new Faker();
         User user = new User.UserBuilder()
                 .username(String.valueOf(faker.name()))
@@ -119,7 +118,7 @@ public class LoginPage {
     public final List<String> getRequiredFieldNameWithError() {
         getRequiredText();
         return Driver.getInstance().findElements(errorInput).stream()
-                .map((f)->f.getDomAttribute("name"))
+                .map((f) -> f.getDomAttribute("name"))
                 .collect(Collectors.toList());
     }
 }
