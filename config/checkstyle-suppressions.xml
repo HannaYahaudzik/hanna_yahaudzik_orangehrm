@@ -14,4 +14,8 @@
     <!-- See http://checkstyle.sf.net/config_naming.html -->
     <suppress files="" checks="MemberName"/>
 
+    <!-- Checks for Javadoc comments.                     -->
+    <!-- See http://checkstyle.sf.net/config_javadoc.html -->
+    <suppress checks="JavadocVariable" files=""/>
+
 </suppressions>
