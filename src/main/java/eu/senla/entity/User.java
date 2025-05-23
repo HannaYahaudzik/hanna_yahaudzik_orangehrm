@@ -1,7 +1,7 @@
 package eu.senla.entity;
 
 
-public class User{
+public class User {
     private final String username;
     private final String password;
 
