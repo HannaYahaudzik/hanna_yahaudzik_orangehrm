@@ -1,7 +1,7 @@
 package eu.senla;
 
 import eu.senla.driver.Driver;
-import eu.senla.entity.User;
+import eu.senla.entity.LoginUser;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.login.LoginPage;
 import org.junit.jupiter.api.Assertions;
@@ -30,15 +30,15 @@ public class LoginTest extends BaseTest {
 
     @ParameterizedTest
     @MethodSource("requiredFieldData")
-    public void testRequiredField(User user, List<String> fieldName) {
+    public void testRequiredField(LoginUser user, List<String> fieldName) {
         Assertions.assertEquals(fieldName, new LoginPage().loginUser(user).getRequiredFieldNameWithError());
     }
 
     static Stream<Arguments> requiredFieldData() {
         return Stream.of(
-                Arguments.arguments(new User.UserBuilder().username("").password("").build(), Arrays.asList("username", "password")),
-                Arguments.arguments(new User.UserBuilder().username("username").password("").build(), Arrays.asList("password")),
-                Arguments.arguments(new User.UserBuilder().username("").password("password").build(), Arrays.asList("username"))
+                Arguments.arguments(new LoginUser.UserBuilder().username("").password("").build(), Arrays.asList("username", "password")),
+                Arguments.arguments(new LoginUser.UserBuilder().username("username").password("").build(), Arrays.asList("password")),
+                Arguments.arguments(new LoginUser.UserBuilder().username("").password("password").build(), Arrays.asList("username"))
         );
     }
 }
