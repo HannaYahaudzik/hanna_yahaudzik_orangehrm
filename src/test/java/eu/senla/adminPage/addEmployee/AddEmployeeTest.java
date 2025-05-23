@@ -2,11 +2,14 @@ package eu.senla.adminPage.addEmployee;
 
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.login.LoginPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Проверка формы добавления сотрудника")
 public class AddEmployeeTest extends BaseTest {
 
     @Test
+    @DisplayName("Проверка заполнения формы добавления сотрудника")
     public void addEmployee() {
         new LoginPage()
                 .loginValidUser()
