@@ -87,7 +87,7 @@ public class LoginPage {
     public final LoginPage loginFakerUser() {
         Faker faker = new Faker();
 
-        LoginUser user = new LoginUser.builder()
+        LoginUser user = LoginUser.builder()
                 .username(String.valueOf(faker.name()))
                 .password(String.valueOf(faker.name()))
                 .build();
@@ -96,7 +96,7 @@ public class LoginPage {
     }
 
     public final HomePage loginValidUser() {
-        LoginUser user = new LoginUser.builder()
+        LoginUser user = LoginUser.builder()
                 .username(USERNAME)
                 .password(PASSWORD)
                 .build();

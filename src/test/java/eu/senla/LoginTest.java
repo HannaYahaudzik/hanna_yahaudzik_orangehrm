@@ -36,9 +36,9 @@ public class LoginTest extends BaseTest {
 
     static Stream<Arguments> requiredFieldData() {
         return Stream.of(
-                Arguments.arguments(new LoginUser.UserBuilder().username("").password("").build(), Arrays.asList("username", "password")),
-                Arguments.arguments(new LoginUser.UserBuilder().username("username").password("").build(), Arrays.asList("password")),
-                Arguments.arguments(new LoginUser.UserBuilder().username("").password("password").build(), Arrays.asList("username"))
+                Arguments.arguments(LoginUser.builder().username("").password("").build(), Arrays.asList("username", "password")),
+                Arguments.arguments(LoginUser.builder().username("username").password("").build(), Arrays.asList("password")),
+                Arguments.arguments(LoginUser.builder().username("").password("password").build(), Arrays.asList("username"))
         );
     }
 }
