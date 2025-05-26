@@ -1,7 +1,7 @@
 package eu.senla;
 
 import eu.senla.driver.Driver;
-import eu.senla.entity.LoginUser;
+import eu.senla.entity.User;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.login.LoginPage;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +12,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -39,15 +38,15 @@ public class LoginTest extends BaseTest {
      */
     @ParameterizedTest(name = "{index} - Проверка обязательных полей: {1}")
     @MethodSource("requiredFieldData")
-    public void testRequiredField(LoginUser user, List<String> fieldName) {
-        Assertions.assertEquals(fieldName, new LoginPage().loginUser(user).getRequiredFieldNameWithError());
+    public void testRequiredField(List<String> expectedRequiredFieldName, User user) {
+        Assertions.assertEquals(expectedRequiredFieldName, new LoginPage().loginUser(user).getRequiredFieldNameWithError());
     }
 
     static Stream<Arguments> requiredFieldData() {
         return Stream.of(
-                Arguments.arguments(LoginUser.builder().username("").password("").build(), Arrays.asList("username", "password")),
-                Arguments.arguments(LoginUser.builder().username("username").password("").build(), Arrays.asList("password")),
-                Arguments.arguments(LoginUser.builder().username("").password("password").build(), Arrays.asList("username"))
+                Arguments.arguments(Arrays.asList("username", "password"), User.builder().username("").password("").build()),
+                Arguments.arguments(Arrays.asList("password"), User.builder().username("username").password("").build()),
+                Arguments.arguments(Arrays.asList("username"), User.builder().username("").password("password").build())
         );
     }
 }
