@@ -2,7 +2,7 @@ package eu.senla.pageObject.login;
 
 import com.github.javafaker.Faker;
 import eu.senla.driver.Driver;
-import eu.senla.entity.User;
+import eu.senla.entity.LoginUser;
 import eu.senla.pageObject.login.homePage.HomePage;
 import eu.senla.wait.Wait;
 import org.openqa.selenium.By;
@@ -57,7 +57,7 @@ public class LoginPage {
         return this;
     }
 
-    public final LoginPage loginUser(final User user) {
+    public final LoginPage loginUser(final LoginUser user) {
         enterUsername(user.getUsername());
         enterPassword(user.getPassword());
         clickLoginButton();
@@ -66,7 +66,8 @@ public class LoginPage {
 
     public final LoginPage loginFakerUser() {
         Faker faker = new Faker();
-        User user = new User.UserBuilder()
+
+        LoginUser user = LoginUser.builder()
                 .username(String.valueOf(faker.name()))
                 .password(String.valueOf(faker.name()))
                 .build();
@@ -75,7 +76,7 @@ public class LoginPage {
     }
 
     public final HomePage loginValidUser() {
-        User user = new User.UserBuilder()
+        LoginUser user = LoginUser.builder()
                 .username(USERNAME)
                 .password(PASSWORD)
                 .build();

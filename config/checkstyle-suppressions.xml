@@ -12,7 +12,11 @@
 
     <!-- Doesn't check for Naming Conventions.                  -->
     <!-- See http://checkstyle.sf.net/config_naming.html -->
-    <suppress files="" checks="MemberName"/>
+    <suppress checks="MemberName" files="" />
+
+    <!-- Checks for Javadoc comments.                     -->
+    <!-- See http://checkstyle.sf.net/config_javadoc.html -->
+    <suppress checks="JavadocVariable" files=""/>
 
     <!-- Doesn't check for Javadoc comments.                     -->
     <!-- See http://checkstyle.sf.net/config_javadoc.html -->
