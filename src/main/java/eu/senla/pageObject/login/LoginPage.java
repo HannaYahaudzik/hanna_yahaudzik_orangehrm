@@ -18,25 +18,14 @@ public class LoginPage {
     private final String USERNAME = "Admin";
     private final String PASSWORD = "admin123";
 
-    /**
-     * Locators.
-     */
     private final By loginTitle = By.className("orangehrm-login-title");
-
-    /**
-     * Locator for an error message.
-     */
-    private final By errorText = By.className("oxd-alert-content-text");
-
-    /**
-     * Locator for an error message of required field.
-     */
-    private final By requiredText = By.className("oxd-input-field-error-message");
-    private final By errorInput = By.className("oxd-input--error");
-
     private final By usernameBy = By.name("username");
     private final By passwordBy = By.name("password");
     private final By loginButtonBy = By.tagName("button");
+
+    private final By errorText = By.className("oxd-alert-content-text");
+    private final By requiredText = By.className("oxd-input-field-error-message");
+    private final By errorInput = By.className("oxd-input--error");
 
     public final String getErrorMessage() {
         return Wait.waitVisibilityOfElementLocated(errorText).getText();

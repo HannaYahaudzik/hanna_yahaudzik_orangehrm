@@ -4,7 +4,13 @@ import eu.senla.driver.Driver;
 import eu.senla.entity.User;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.login.LoginPage;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -36,13 +42,13 @@ public class LoginTest extends BaseTest {
 
     /**
      *
-     * @param user
-     * @param expectedRequiredFieldName
+     * @param expectedRequiredFieldName a list of expected required field name
+     * @param user a user without filling all required fields
      */
     @ParameterizedTest(name = "{index} - Проверка обязательных полей: {1}")
-    @Order(3)
+    @Order(2)
     @MethodSource("requiredFieldData")
-    public void testRequiredField(List<String> expectedRequiredFieldName, User user) {
+    public void testRequiredField(final List<String> expectedRequiredFieldName, final User user) {
         Assertions.assertEquals(expectedRequiredFieldName, new LoginPage().loginUser(user).getRequiredFieldNameWithError());
     }
 
