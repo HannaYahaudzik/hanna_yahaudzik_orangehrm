@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class AddEmployeeTest extends BaseTest {
 
     @Test
-    @Tags(value = {@Tag("all"), @Tag("smoke")})
+    @Tags(value = {@Tag("smoke")})
     @DisplayName("Проверка заполнения формы добавления сотрудника")
     public void addEmployee() {
         new LoginPage()

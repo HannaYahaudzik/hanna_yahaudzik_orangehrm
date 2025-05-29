@@ -1,10 +1,7 @@
 # Запуск тестов через командную строку
 
-## Запуск регрессионных тестов
-`mvn clean test -Dtest=eu.senla.suites.RegressTests`
-
-## Запуск всех тестов по тегу
-`mvn clean test -Dgroups=all`
+## Запуск всех тестов
+`mvn clean test`
 
 ## Запуск смок тестов по тегу
 `mvn clean test -Dgroups=smoke`
