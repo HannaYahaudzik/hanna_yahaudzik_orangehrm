@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
@@ -35,7 +34,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     @Order(1)
-    @Tags(value = {@Tag("all"), @Tag("smoke")})
+    @Tag("smoke")
     @DisplayName("Проверка успешного логина с валидными данными")
     void loginSuccess() {
         assertAll(
@@ -46,7 +45,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     @Order(2)
-    @Tags(value = {@Tag("all")})
     @DisplayName("Проверка ошибки при входя с невалидными данными")
     public void loginInvalidUser() {
         assertEquals("Invalid credentials", new LoginPage().loginFakerUser().getErrorMessage());
@@ -58,7 +56,6 @@ public class LoginTest extends BaseTest {
      */
     @ParameterizedTest(name = "{index} - Проверка обязательных полей: {1}")
     @Order(2)
-    @Tags(value = {@Tag("all")})
     @MethodSource("requiredFieldData")
     public void testRequiredField(final List<String> expectedRequiredFieldName, final User user) {
         assertEquals(
