@@ -15,7 +15,7 @@ public final class Wait {
     /**
      * Timeout 3 seconds.
      */
-    static final Duration TIMEOUT = Duration.ofSeconds(3000);
+    static final Duration TIMEOUT = Duration.ofSeconds(3);
 
     public static WebElement wait(final ExpectedCondition<WebElement> expectedCondition) {
         return new WebDriverWait(Driver.getInstance(), TIMEOUT)

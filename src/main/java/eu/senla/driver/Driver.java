@@ -5,9 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public final class Driver {
 
-    /**
-     * WebDriver.
-     */
     private static WebDriver driver;
 
     private Driver() {

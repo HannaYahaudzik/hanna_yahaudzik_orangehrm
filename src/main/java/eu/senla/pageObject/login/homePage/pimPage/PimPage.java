@@ -5,10 +5,7 @@ import org.openqa.selenium.By;
 
 public class PimPage {
 
-    /**
-     * Locator for a button Add.
-     */
-    private final By addButton = By.xpath(".//button[text()=' Add ']");
+    private final By addButton = By.xpath("//div[@class='orangehrm-header-container']/button");
 
     public final AddEmployeePage clickAddButton() {
         Wait.waitVisibilityOfElementLocated(addButton).click();
