@@ -4,19 +4,14 @@ import com.github.javafaker.Faker;
 import eu.senla.driver.Driver;
 import eu.senla.entity.User;
 import eu.senla.pageObject.login.homePage.HomePage;
-import eu.senla.wait.Wait;
+import eu.senla.utilities.ReadPropertyFile;
+import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class LoginPage {
-
-    /*
-      A valid user credential.
-     */
-    private final String USERNAME = "Admin";
-    private final String PASSWORD = "admin123";
 
     private final By loginTitle = By.className("orangehrm-login-title");
     private final By usernameBy = By.name("username");
@@ -66,8 +61,8 @@ public class LoginPage {
 
     public final HomePage loginValidUser() {
         User user = User.builder()
-                .username(USERNAME)
-                .password(PASSWORD)
+                .username(ReadPropertyFile.getProperties("USERNAME"))
+                .password(ReadPropertyFile.getProperties("PASSWORD"))
                 .build();
         loginUser(user);
         return new HomePage();

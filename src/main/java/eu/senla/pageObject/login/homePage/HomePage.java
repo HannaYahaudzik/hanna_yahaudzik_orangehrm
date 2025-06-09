@@ -2,7 +2,7 @@ package eu.senla.pageObject.login.homePage;
 
 import eu.senla.pageObject.login.homePage.adminPage.AdminPage;
 import eu.senla.pageObject.login.homePage.pimPage.PimPage;
-import eu.senla.wait.Wait;
+import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
 
 public class HomePage {

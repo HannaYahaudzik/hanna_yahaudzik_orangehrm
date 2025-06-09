@@ -1,4 +1,4 @@
-package eu.senla.wait;
+package eu.senla.utilities;
 
 import eu.senla.driver.Driver;
 

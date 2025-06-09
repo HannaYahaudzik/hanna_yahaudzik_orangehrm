@@ -1,6 +1,6 @@
 package eu.senla.pageObject.login.homePage.pimPage;
 
-import eu.senla.wait.Wait;
+import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
 
 public class AddEmployeePage {

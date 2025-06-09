@@ -1,20 +1,15 @@
 package eu.senla.general;
 
 import eu.senla.driver.Driver;
+import eu.senla.utilities.ReadPropertyFile;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTest {
 
-    /**
-     * A start url.
-     */
-    private final String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
-
-
     @BeforeEach
     public final void initDriver() {
-        Driver.getInstance().get(URL);
+        Driver.getInstance().get(ReadPropertyFile.getProperties("BASE_URL"));
     }
 
     @AfterEach
