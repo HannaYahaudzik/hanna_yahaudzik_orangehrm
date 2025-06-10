@@ -7,9 +7,16 @@
 `mvn clean test -Dgroups=smoke`
 
 ## Запуск тестов по страницам
+
 ### Страница логина
 `mvn clean test -Dgroups=loginForm`
+
+### Страница Admin
+
+#### Страница Job Titles
+`mvn clean test -Dgroups=jobTitles`
+
 ### Страница PIM
 
-### Форма Add employee
+#### Форма Add employee
 `mvn clean test -Dgroups=addEmployee`

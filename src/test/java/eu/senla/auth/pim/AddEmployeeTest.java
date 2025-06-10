@@ -1,6 +1,6 @@
-package eu.senla.adminPage.addEmployee;
+package eu.senla.auth.pim;
 
-import eu.senla.enums.Menu;
+import eu.senla.enums.SidepanelMenu;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.login.LoginPage;
 import eu.senla.pageObject.login.auth.pim.PimPage;
@@ -23,7 +23,7 @@ public class AddEmployeeTest extends BaseTest {
                 new LoginPage()
                         .loginValidUser()
                         .getSidepanelPage()
-                        .clickMenu(Menu.PIM)))
+                        .clickMenu(SidepanelMenu.PIM)))
                 .clickAddEmployeeButton()
                 .fillAddEmployeeForm("Test first name", "Test middle name", "Test last name");
     }

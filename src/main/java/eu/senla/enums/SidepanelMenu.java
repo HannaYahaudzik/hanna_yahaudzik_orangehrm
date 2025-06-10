@@ -1,6 +1,6 @@
 package eu.senla.enums;
 
-public enum Menu {
+public enum SidepanelMenu {
 
     ADMIN("viewAdminModule"),
     PIM("viewPimModule"),
@@ -17,7 +17,7 @@ public enum Menu {
 
     private final String urlPart;
 
-    Menu(final String urlPart) {
+    SidepanelMenu(final String urlPart) {
         this.urlPart = urlPart;
     }
 

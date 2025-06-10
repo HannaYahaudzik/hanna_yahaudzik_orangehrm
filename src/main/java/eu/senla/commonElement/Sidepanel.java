@@ -1,6 +1,6 @@
 package eu.senla.commonElement;
 
-import eu.senla.enums.Menu;
+import eu.senla.enums.SidepanelMenu;
 import eu.senla.pageObject.login.auth.BaseAuthPage;
 import eu.senla.pageObject.login.auth.DashboardPage;
 import eu.senla.pageObject.login.auth.admin.AdminPage;
@@ -42,9 +42,9 @@ public class Sidepanel {
         return menuCssSelector + " > a[href*='" + urlPart + "']";
     }
 
-    public final BaseAuthPage clickMenu(final Menu menuPoint) {
-        Wait.waitVisibilityOfElementLocated(By.cssSelector(getMenuCssSelector(menuPoint.getUrlPart()))).click();
-        switch (menuPoint) {
+    public final BaseAuthPage clickMenu(final SidepanelMenu sidepanelMenuPoint) {
+        Wait.waitVisibilityOfElementLocated(By.cssSelector(getMenuCssSelector(sidepanelMenuPoint.getUrlPart()))).click();
+        switch (sidepanelMenuPoint) {
             case ADMIN:
                 return new AdminPage();
             case PIM:
