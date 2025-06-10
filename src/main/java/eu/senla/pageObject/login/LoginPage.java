@@ -52,7 +52,7 @@ public class LoginPage {
         Faker faker = new Faker();
 
         User user = User.builder()
-                .username(String.valueOf(faker.name()))
+                .username(String.valueOf(faker.name().username()))
                 .password(String.valueOf(faker.name()))
                 .build();
         loginUser(user);

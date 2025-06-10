@@ -18,7 +18,7 @@ public class AddEmployeeTest extends BaseTest {
         new LoginPage()
                 .loginValidUser()
                 .clickPimMenu()
-                .clickAddButton()
+                .clickAddEmployeeButton()
                 .fillAddEmployeeForm("Test first name", "Test middle name", "Test last name");
     }
 }

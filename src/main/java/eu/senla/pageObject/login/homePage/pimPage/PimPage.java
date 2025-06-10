@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 
 public class PimPage {
 
-    private final By addButton = By.xpath("//div[@class='orangehrm-header-container']/button");
+    private final By addEmployeeButton = By.xpath("//div[@class='orangehrm-header-container']/button");
 
-    public final AddEmployeePage clickAddButton() {
-        Wait.waitVisibilityOfElementLocated(addButton).click();
+    public final AddEmployeePage clickAddEmployeeButton() {
+        Wait.waitVisibilityOfElementLocated(addEmployeeButton).click();
         return new AddEmployeePage();
     }
 }
