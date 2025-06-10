@@ -1,9 +1,10 @@
-package eu.senla.pageObject.login.homePage.pimPage;
+package eu.senla.pageObject.login.auth.pim;
 
+import eu.senla.pageObject.login.auth.BaseAuthPage;
 import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
 
-public class AddEmployeePage {
+public class AddEmployeePage extends BaseAuthPage {
 
     private final By firstNameBy = By.name("firstName");
     private final By middleNameBy = By.name("middleName");

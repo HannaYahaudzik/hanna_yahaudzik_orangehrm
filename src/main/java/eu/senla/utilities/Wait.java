@@ -13,9 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public final class Wait {
 
     /**
-     * Timeout 3 seconds.
+     * Timeout 5 seconds.
      */
-    static final Duration TIMEOUT = Duration.ofSeconds(3);
+    static final Duration TIMEOUT = Duration.ofSeconds(5);
 
     public static WebElement wait(final ExpectedCondition<WebElement> expectedCondition) {
         return new WebDriverWait(Driver.getInstance(), TIMEOUT)

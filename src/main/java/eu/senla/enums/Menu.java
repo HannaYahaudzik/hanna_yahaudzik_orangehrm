@@ -3,7 +3,17 @@ package eu.senla.enums;
 public enum Menu {
 
     ADMIN("viewAdminModule"),
-    PIM("viewPimModule");
+    PIM("viewPimModule"),
+    LEAVE("viewLeaveModule"),
+    TIME("viewTimeModule"),
+    RECRUITMENT("viewRecruitmentModule"),
+    MY_INFO("viewMyDetails"),
+    PERFORMANCE("viewPerformanceModule"),
+    DASHBOARD("dashboard/index"),
+    DIRECTORY("viewDirectory"),
+    MAINTENANCE("viewMaintenanceModule"),
+    CLAIM("viewClaimModule"),
+    BUZZ("viewBuzz");
 
     private final String urlPart;
 

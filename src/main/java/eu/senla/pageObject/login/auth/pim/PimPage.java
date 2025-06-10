@@ -1,9 +1,10 @@
-package eu.senla.pageObject.login.homePage.pimPage;
+package eu.senla.pageObject.login.auth.pim;
 
+import eu.senla.pageObject.login.auth.BaseAuthPage;
 import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
 
-public class PimPage {
+public class PimPage extends BaseAuthPage {
 
     private final By addEmployeeButton = By.xpath("//div[@class='orangehrm-header-container']/button");
 

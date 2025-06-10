@@ -3,7 +3,7 @@ package eu.senla.pageObject.login;
 import com.github.javafaker.Faker;
 import eu.senla.driver.Driver;
 import eu.senla.entity.User;
-import eu.senla.pageObject.login.homePage.HomePage;
+import eu.senla.pageObject.login.auth.DashboardPage;
 import eu.senla.utilities.ReadPropertyFile;
 import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
@@ -59,13 +59,13 @@ public class LoginPage {
         return this;
     }
 
-    public final HomePage loginValidUser() {
+    public final DashboardPage loginValidUser() {
         User user = User.builder()
                 .username(ReadPropertyFile.getProperties("USERNAME"))
                 .password(ReadPropertyFile.getProperties("PASSWORD"))
                 .build();
         loginUser(user);
-        return new HomePage();
+        return new DashboardPage();
     }
 
     public final String getTitle() {
