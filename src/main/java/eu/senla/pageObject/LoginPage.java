@@ -3,7 +3,6 @@ package eu.senla.pageObject;
 import eu.senla.driver.Driver;
 import eu.senla.entity.User;
 import eu.senla.pageObject.auth.DashboardPage;
-import eu.senla.utilities.GenerateFakeEntity;
 import eu.senla.utilities.ReadPropertyFile;
 import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
@@ -46,10 +45,6 @@ public class LoginPage {
         enterPassword(user.getPassword());
         clickLoginButton();
         return this;
-    }
-
-    public final LoginPage loginFakerUser() {
-        return loginUser(GenerateFakeEntity.getUser());
     }
 
     public final DashboardPage loginValidUser() {

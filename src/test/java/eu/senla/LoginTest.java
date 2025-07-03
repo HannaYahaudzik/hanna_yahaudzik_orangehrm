@@ -4,6 +4,7 @@ import eu.senla.driver.Driver;
 import eu.senla.entity.User;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.LoginPage;
+import eu.senla.utilities.GenerateFakeEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -48,7 +49,7 @@ public class LoginTest extends BaseTest {
     @Order(2)
     @DisplayName("Проверка ошибки при входя с невалидными данными")
     public void loginInvalidUser() {
-        assertEquals("Invalid credentials", new LoginPage().loginFakerUser().getErrorMessage());
+        assertEquals("Invalid credentials", new LoginPage().loginUser(GenerateFakeEntity.getUser()).getErrorMessage());
     }
 
     /**

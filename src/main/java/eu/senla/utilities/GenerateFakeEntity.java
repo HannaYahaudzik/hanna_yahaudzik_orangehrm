@@ -2,6 +2,7 @@ package eu.senla.utilities;
 
 import com.github.javafaker.Faker;
 import eu.senla.entity.Candidate;
+import eu.senla.entity.Employee;
 import eu.senla.entity.User;
 
 
@@ -21,6 +22,14 @@ public final class GenerateFakeEntity {
                 .firstName(FAKER.name().firstName())
                 .lastName(FAKER.name().lastName())
                 .email(FAKER.internet().emailAddress())
+                .build();
+    }
+
+    public static Employee getEmployee() {
+        return Employee.builder()
+                .firstName(FAKER.name().firstName())
+                .middleName(FAKER.name().name())
+                .lastName(FAKER.name().lastName())
                 .build();
     }
 
