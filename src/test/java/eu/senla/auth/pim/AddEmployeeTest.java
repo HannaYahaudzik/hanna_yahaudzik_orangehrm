@@ -2,8 +2,8 @@ package eu.senla.auth.pim;
 
 import eu.senla.enums.SidepanelMenu;
 import eu.senla.general.BaseTest;
-import eu.senla.pageObject.login.LoginPage;
-import eu.senla.pageObject.login.auth.pim.PimPage;
+import eu.senla.pageObject.LoginPage;
+import eu.senla.pageObject.auth.pim.PimPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;

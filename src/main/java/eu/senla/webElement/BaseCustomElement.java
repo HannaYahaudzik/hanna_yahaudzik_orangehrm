@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public abstract class BaseCustomElement {
 
-    private String name;
+    private final String name;
 
     public BaseCustomElement(final String name) {
         this.name = name;
@@ -16,9 +16,9 @@ public abstract class BaseCustomElement {
         return name;
     }
 
-    abstract String getXpathExpression();
+    protected abstract By getBy();
 
     public final WebElement getWebElement() {
-        return Wait.waitVisibilityOfElementLocated(By.xpath(getXpathExpression()));
+        return Wait.waitVisibilityOfElementLocated(getBy());
     }
 }

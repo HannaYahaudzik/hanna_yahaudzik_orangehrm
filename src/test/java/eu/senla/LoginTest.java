@@ -3,7 +3,7 @@ package eu.senla;
 import eu.senla.driver.Driver;
 import eu.senla.entity.User;
 import eu.senla.general.BaseTest;
-import eu.senla.pageObject.login.LoginPage;
+import eu.senla.pageObject.LoginPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;

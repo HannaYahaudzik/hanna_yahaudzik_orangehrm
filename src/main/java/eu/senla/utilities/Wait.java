@@ -17,10 +17,14 @@ public final class Wait {
      */
     static final Duration TIMEOUT = Duration.ofSeconds(5);
 
-    public static WebElement wait(final ExpectedCondition<WebElement> expectedCondition) {
-        return new WebDriverWait(Driver.getInstance(), TIMEOUT)
+    public static WebElement wait(final ExpectedCondition<WebElement> expectedCondition, final Duration timeout) {
+        return new WebDriverWait(Driver.getInstance(), timeout)
                 .withMessage("The element isn't visible")
                 .until(expectedCondition);
+    }
+
+    public static WebElement wait(final ExpectedCondition<WebElement> expectedCondition) {
+        return wait(expectedCondition, TIMEOUT);
     }
 
     public static WebElement waitVisibilityOfElementLocated(final By locator) {
