@@ -8,7 +8,7 @@ import eu.senla.entity.User;
 
 public final class GenerateFakeEntity {
 
-    private static final Faker FAKER = new Faker();
+    public static final Faker FAKER = new Faker();
 
     public static User getUser() {
         return User.builder()
@@ -17,11 +17,22 @@ public final class GenerateFakeEntity {
                 .build();
     }
 
-    public static Candidate getCandidate() {
+    public static Candidate getCandidateRequiredFieldOnly() {
         return Candidate.builder()
                 .firstName(FAKER.name().firstName())
                 .lastName(FAKER.name().lastName())
                 .email(FAKER.internet().emailAddress())
+                .build();
+    }
+
+    public static Candidate getCandidateAllArgs() {
+        return Candidate.builder()
+                .firstName(FAKER.name().firstName())
+                .middleName(FAKER.name().name())
+                .lastName(FAKER.name().lastName())
+                .email(FAKER.internet().emailAddress())
+                .contactNumber(FAKER.phoneNumber().subscriberNumber())
+                .keywords(FAKER.job().keySkills())
                 .build();
     }
 

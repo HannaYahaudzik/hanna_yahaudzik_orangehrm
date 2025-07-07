@@ -19,16 +19,16 @@ public class AddCandidateTest extends BaseTest {
 
     @Test
     @Tags(value = {@Tag("smoke")})
-    @DisplayName("Проверка заполнения формы добавления кандидата")
-    public void addCandidates() {
-        Candidate candidate = GenerateFakeEntity.getCandidate();
+    @DisplayName("Проверка создания кандидата при валидном заполнении только обязательных полей")
+    public void addCandidatesWithRequiredFields() {
+        Candidate candidate = GenerateFakeEntity.getCandidateRequiredFieldOnly();
         CandidateProfilePage candidateProfilePage = ((RecruitmentPage)
                 new LoginPage()
                         .loginValidUser()
                         .getSidepanelPage()
                         .clickMenu(SidepanelMenu.RECRUITMENT))
                 .clickToAddButton()
-                .addCandidate(candidate);
+                .submitAddCandidateForm(candidate);
 
         Assertions.assertAll(
                 () -> Assertions.assertEquals(candidate.getFirstName(), candidateProfilePage.getFirstNameValue(),
@@ -36,6 +36,35 @@ public class AddCandidateTest extends BaseTest {
                 () -> Assertions.assertEquals(candidate.getLastName(), candidateProfilePage.getLastNameValue(),
                         "Last name doesn't equal an expected value."),
                 () -> Assertions.assertEquals(candidate.getEmail(), candidateProfilePage.getEmailValue(),
+                        "Email doesn't equal an expected value.")
+        );
+    }
+
+    @Test
+    @DisplayName("Проверка создания кандидата при валидном заполении всех полей")
+    public void addCandidateWithAllFields() {
+        Candidate candidate = GenerateFakeEntity.getCandidateAllArgs();
+        CandidateProfilePage candidateProfilePage = ((RecruitmentPage)
+                new LoginPage()
+                        .loginValidUser()
+                        .getSidepanelPage()
+                        .clickMenu(SidepanelMenu.RECRUITMENT))
+                .clickToAddButton()
+                .submitAddCandidateWithAllArgs(candidate);
+
+
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(candidate.getFirstName(), candidateProfilePage.getFirstNameValue(),
+                        "First name doesn't equal an expected value."),
+                () -> Assertions.assertEquals(candidate.getMiddleName(), candidateProfilePage.getMiddleNameValue(),
+                        "First name doesn't equal an expected value."),
+                () -> Assertions.assertEquals(candidate.getLastName(), candidateProfilePage.getLastNameValue(),
+                        "Last name doesn't equal an expected value."),
+                () -> Assertions.assertEquals(candidate.getEmail(), candidateProfilePage.getEmailValue(),
+                        "Email doesn't equal an expected value."),
+                () -> Assertions.assertEquals(candidate.getContactNumber(), candidateProfilePage.getContactNumberValue(),
+                        "Email doesn't equal an expected value."),
+                () -> Assertions.assertEquals(candidate.getKeywords(), candidateProfilePage.getKeywordsValue(),
                         "Email doesn't equal an expected value.")
         );
     }

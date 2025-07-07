@@ -12,6 +12,8 @@ public class AddCandidatePage {
     private final By middleNameInput = By.name("middleName");
     private final By lastNameInput = By.name("lastName");
     private final Input emailInput = new Input("Email");
+    private final Input contactNumberInput = new Input("Contact Number");
+    private final Input keywordsInput = new Input("Keywords");
     private final By saveButton = By.xpath("//button[@type='submit']");
 
     private AddCandidatePage enterFirstName(final String value) {
@@ -34,15 +36,36 @@ public class AddCandidatePage {
         return this;
     }
 
+    private AddCandidatePage enterContactNumber(final String value) {
+        contactNumberInput.getWebElement().sendKeys(value);
+        return this;
+    }
+
+    private AddCandidatePage enterKeywords(final String value) {
+        keywordsInput.getWebElement().sendKeys(value);
+        return this;
+    }
+
     private AddCandidatePage clickSaveButton() {
         Wait.waitVisibilityOfElementLocated(saveButton).click();
         return this;
     }
 
-    public final CandidateProfilePage addCandidate(final Candidate candidate) {
+    public final CandidateProfilePage submitAddCandidateForm(final Candidate candidate) {
         enterFirstName(candidate.getFirstName());
         enterLastName(candidate.getLastName());
         enterEmail(candidate.getEmail());
+        clickSaveButton();
+        return new CandidateProfilePage();
+    }
+
+    public final CandidateProfilePage submitAddCandidateWithAllArgs(final Candidate candidate) {
+        enterFirstName(candidate.getFirstName());
+        enterMiddleName(candidate.getMiddleName());
+        enterLastName(candidate.getLastName());
+        enterEmail(candidate.getEmail());
+        enterContactNumber(candidate.getContactNumber());
+        enterKeywords(candidate.getKeywords());
         clickSaveButton();
         return new CandidateProfilePage();
     }
