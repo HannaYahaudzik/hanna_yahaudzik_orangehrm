@@ -20,3 +20,8 @@
 
 #### Форма Add employee
 `mvn clean test -Dgroups=addEmployee`
+
+### Страница Recruitment
+
+#### Форма Add candidate
+`mvn clean test -Dgroups=addCandidate`
