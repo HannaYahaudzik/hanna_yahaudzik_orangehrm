@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 
 public class DashboardPage extends BaseAuthPage {
 
-    private final By pageHeaderBy = By.className("oxd-text--h6");
-
+    private final By pageHeaderBy = By.className("oxd-topbar-header-breadcrumb-module");
     public final String getPageHeader() {
         return Wait.waitVisibilityOfElementLocated(pageHeaderBy).getText();
     }

@@ -1,6 +1,7 @@
 package eu.senla.auth.admin.job;
 
 import com.github.javafaker.Faker;
+import eu.senla.driver.Driver;
 import eu.senla.enums.SidepanelMenu;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.LoginPage;
@@ -15,6 +16,10 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("jobTitles")
 @DisplayName("Проверка формы добавления профессии")
@@ -34,6 +39,19 @@ public class JobTitlesTest extends BaseTest {
                         .getSidepanelPage()
                         .clickMenu(SidepanelMenu.ADMIN)))
                 .clickJobTitlesPage();
+    }
+
+    @Test
+    @Order(1)
+    @Tags(value = {@Tag("smoke")})
+    @DisplayName("Проверка перехода на страницу через UI")
+    public void checkUserPathToPage() {
+        assertAll(
+                () -> assertEquals("Admin / Job", openJobTitlePage().getPageHeader()),
+                () -> assertTrue(Objects.requireNonNull(Driver.getInstance().getCurrentUrl()).contains("admin/viewJobTitleList"))
+        );
+
+
     }
 
     @Test

@@ -11,8 +11,16 @@ public class JobTitlesPage extends BaseAuthPage {
 
     private final By addButton = By.xpath("//button[text()=' Add ']");
 
+    private final By pageHeaderModuleBy = By.className("oxd-topbar-header-breadcrumb-module");
+    private final By pageHeaderLevelBy = By.className("oxd-topbar-header-breadcrumb-level");
+
     public JobTitlesPage() {
         this.jobTitleTable = new JobTitleTable();
+    }
+
+    public final String getPageHeader() {
+        return Wait.waitVisibilityOfElementLocated(pageHeaderModuleBy).getText() + " / "
+                + Wait.waitVisibilityOfElementLocated(pageHeaderLevelBy).getText();
     }
 
     public final AddJobTitlePage clickAddButton() {
