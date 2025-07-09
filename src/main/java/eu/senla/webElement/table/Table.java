@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public abstract class Table {
 
-    private final By table = By.className("orangehrm-container");
+    private final By table = By.className("oxd-table-card");
 
     public final WebElement getTable() {
         return Wait.waitVisibilityOfElementLocated(table);
