@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("jobTitles")
-@DisplayName("Проверка формы добавления профессии")
+@DisplayName("Проверка добавления и удаления профессии")
 public class JobTitlesTest extends BaseTest {
 
     private static String jobTitleName;
