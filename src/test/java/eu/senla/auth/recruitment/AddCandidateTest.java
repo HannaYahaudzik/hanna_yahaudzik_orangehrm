@@ -63,9 +63,9 @@ public class AddCandidateTest extends BaseTest {
                 () -> Assertions.assertEquals(candidate.getEmail(), candidateProfilePage.getEmailValue(),
                         "Email doesn't equal an expected value."),
                 () -> Assertions.assertEquals(candidate.getContactNumber(), candidateProfilePage.getContactNumberValue(),
-                        "Email doesn't equal an expected value."),
+                        "Contact number doesn't equal an expected value."),
                 () -> Assertions.assertEquals(candidate.getKeywords(), candidateProfilePage.getKeywordsValue(),
-                        "Email doesn't equal an expected value.")
+                        "Keywords don't equal an expected value.")
         );
     }
 }
