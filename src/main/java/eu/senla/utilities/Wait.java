@@ -3,6 +3,7 @@ package eu.senla.utilities;
 import eu.senla.driver.Driver;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,11 @@ public final class Wait {
 
     public static WebElement waitVisibilityOfElementLocated(final By locator) {
         return wait(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static List<WebElement> waitVisibilityListOfElements(final By locator) {
+        waitVisibilityOfElementLocated(locator);
+        return Driver.getInstance().findElements(locator);
     }
 
     private Wait() {

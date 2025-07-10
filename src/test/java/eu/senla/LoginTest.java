@@ -4,6 +4,7 @@ import eu.senla.driver.Driver;
 import eu.senla.entity.User;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.LoginPage;
+import eu.senla.pageObject.auth.DashboardPage;
 import eu.senla.utilities.GenerateFakeEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -39,9 +40,10 @@ public class LoginTest extends BaseTest {
     @Tag("smoke")
     @DisplayName("Проверка успешного логина с валидными данными")
     void loginSuccess() {
+        DashboardPage page = new LoginPage().loginValidUser();
         assertAll(
-                () -> assertEquals("Dashboard", new LoginPage().loginValidUser().getPageHeader()),
-                () -> assertTrue(Objects.requireNonNull(Driver.getInstance().getCurrentUrl()).contains("/dashboard/index"))
+                () -> assertEquals(DashboardPage.TITLE, page.getHeader().getTitlePage()),
+                () -> assertTrue(Objects.requireNonNull(Driver.getInstance().getCurrentUrl()).contains(DashboardPage.URL))
         );
     }
 
