@@ -1,7 +1,8 @@
-package eu.senla;
+package eu.senla.appTest;
 
 import eu.senla.driver.Driver;
 import eu.senla.entity.User;
+import eu.senla.enums.SidepanelMenu;
 import eu.senla.general.BaseTest;
 import eu.senla.pageObject.LoginPage;
 import eu.senla.utilities.GenerateFakeEntity;
@@ -41,7 +42,7 @@ public class LoginTest extends BaseTest {
     void loginSuccess() {
         assertAll(
                 () -> assertEquals("Dashboard", new LoginPage().loginValidUser().getPageHeader()),
-                () -> assertTrue(Objects.requireNonNull(Driver.getInstance().getCurrentUrl()).contains("/dashboard/index"))
+                () -> assertTrue(Objects.requireNonNull(Driver.getInstance().getCurrentUrl()).contains(SidepanelMenu.DASHBOARD.getUrlPart()))
         );
     }
 

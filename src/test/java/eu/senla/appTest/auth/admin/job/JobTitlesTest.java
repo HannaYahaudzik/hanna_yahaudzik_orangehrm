@@ -1,4 +1,4 @@
-package eu.senla.auth.admin.job;
+package eu.senla.appTest.auth.admin.job;
 
 import com.github.javafaker.Faker;
 import eu.senla.driver.Driver;

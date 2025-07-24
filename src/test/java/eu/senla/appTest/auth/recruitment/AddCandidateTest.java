@@ -1,4 +1,4 @@
-package eu.senla.auth.recruitment;
+package eu.senla.appTest.auth.recruitment;
 
 import eu.senla.entity.Candidate;
 import eu.senla.enums.SidepanelMenu;
@@ -23,8 +23,7 @@ public class AddCandidateTest extends BaseTest {
     public void addCandidatesWithRequiredFields() {
         Candidate candidate = GenerateFakeEntity.getCandidateRequiredFieldOnly();
         CandidateProfilePage candidateProfilePage = ((RecruitmentPage)
-                new LoginPage()
-                        .loginValidUser()
+                login()
                         .getSidepanelPage()
                         .clickMenu(SidepanelMenu.RECRUITMENT))
                 .clickToAddButton()
@@ -45,8 +44,9 @@ public class AddCandidateTest extends BaseTest {
     public void addCandidateWithAllFields() {
         Candidate candidate = GenerateFakeEntity.getCandidateAllArgs();
         CandidateProfilePage candidateProfilePage = ((RecruitmentPage)
-                new LoginPage()
-                        .loginValidUser()
+                login()
+//                new LoginPage()
+//                        .loginValidUser()
                         .getSidepanelPage()
                         .clickMenu(SidepanelMenu.RECRUITMENT))
                 .clickToAddButton()

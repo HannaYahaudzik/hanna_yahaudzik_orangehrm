@@ -1,4 +1,4 @@
-package eu.senla.auth.pim;
+package eu.senla.appTest.auth.pim;
 
 import eu.senla.entity.Employee;
 import eu.senla.enums.SidepanelMenu;

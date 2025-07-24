@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     private final By loginTitle = By.className("orangehrm-login-title");
     private final By usernameBy = By.name("username");
@@ -20,6 +20,10 @@ public class LoginPage {
     private final By errorText = By.className("oxd-alert-content-text");
     private final By requiredText = By.className("oxd-input-field-error-message");
     private final By errorInput = By.className("oxd-input--error");
+
+    public LoginPage(){
+        openPage(ReadPropertyFile.getProperties("BASE_URL"));
+    }
 
     public final String getErrorMessage() {
         return Wait.waitVisibilityOfElementLocated(errorText).getText();
