@@ -25,14 +25,6 @@ public class BaseTest {
         return loginStrategy.login();
     }
 
-//    public final void openBasePage() {
-//        openPage(ReadPropertyFile.getProperties("BASE_URL"));
-//    }
-//
-//    public final void openPage(String url) {
-//        Driver.getInstance().get(url);
-//    }
-
     @AfterEach
     public final void quitDriver() {
         Driver.quit();
