@@ -1,9 +1,9 @@
 package eu.senla.utilities;
 
 import com.github.javafaker.Faker;
-import eu.senla.entity.Candidate;
-import eu.senla.entity.Employee;
-import eu.senla.entity.User;
+import eu.senla.entities.Candidate;
+import eu.senla.entities.Employee;
+import eu.senla.entities.User;
 
 
 public final class GenerateFakeEntity {

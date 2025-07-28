@@ -1,18 +1,18 @@
 package eu.senla.appTest;
 
 import eu.senla.driver.Driver;
-import eu.senla.entity.User;
+import eu.senla.entities.User;
 import eu.senla.enums.SidepanelMenu;
 import eu.senla.general.BaseTest;
-import eu.senla.pageObject.LoginPage;
+import eu.senla.pages.LoginPage;
 import eu.senla.utilities.GenerateFakeEntity;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -42,7 +42,10 @@ public class LoginTest extends BaseTest {
     void loginSuccess() {
         assertAll(
                 () -> assertEquals("Dashboard", new LoginPage().loginValidUser().getPageHeader()),
-                () -> assertTrue(Objects.requireNonNull(Driver.getInstance().getCurrentUrl()).contains(SidepanelMenu.DASHBOARD.getUrlPart()))
+                () -> assertTrue(
+                        Objects.requireNonNull(Driver.getInstance().getCurrentUrl())
+                                .contains(SidepanelMenu.DASHBOARD.getUrlPart())
+                )
         );
     }
 

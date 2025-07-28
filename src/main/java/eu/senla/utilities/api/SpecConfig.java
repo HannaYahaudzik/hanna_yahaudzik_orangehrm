@@ -1,10 +1,8 @@
 package eu.senla.utilities.api;
 
 import eu.senla.utilities.ReadPropertyFile;
-import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
@@ -18,8 +16,6 @@ public final class SpecConfig {
     public static RequestSpecification requestSpecification() {
         return new RequestSpecBuilder()
                 .setBaseUri(ReadPropertyFile.getProperties("BASE_URL"))
-                .setAuth(RestAssured.basic(ReadPropertyFile.getProperties("USERNAME"), ReadPropertyFile.getProperties("PASSWORD")))
-                .setContentType(ContentType.JSON)
                 .build();
     }
 
