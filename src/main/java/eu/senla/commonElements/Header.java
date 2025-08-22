@@ -1,6 +1,6 @@
-package eu.senla.commonElement;
+package eu.senla.commonElements;
 
-import eu.senla.pageObject.LoginPage;
+import eu.senla.pages.LoginPage;
 import eu.senla.utilities.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

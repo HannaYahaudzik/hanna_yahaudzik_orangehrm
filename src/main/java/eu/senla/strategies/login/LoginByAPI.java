@@ -19,7 +19,6 @@ public class LoginByAPI implements LoginStrategy {
     public final BaseAuthPage login() {
 
         new LoginPage();
-//        new DashboardPage();
 
         Response response = RequestManager.getRequest("/web/index.php/auth/login");
 

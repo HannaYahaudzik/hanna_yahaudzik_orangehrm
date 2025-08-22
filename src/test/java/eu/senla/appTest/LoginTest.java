@@ -1,10 +1,10 @@
-package eu.senla;
+package eu.senla.appTest;
 
 import eu.senla.driver.Driver;
-import eu.senla.entity.User;
+import eu.senla.entities.User;
 import eu.senla.general.BaseTest;
-import eu.senla.pageObject.LoginPage;
-import eu.senla.pageObject.auth.DashboardPage;
+import eu.senla.pages.LoginPage;
+import eu.senla.pages.auth.DashboardPage;
 import eu.senla.utilities.GenerateFakeEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;

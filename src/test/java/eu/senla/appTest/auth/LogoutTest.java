@@ -1,8 +1,8 @@
-package eu.senla.auth;
+package eu.senla.appTest.auth;
 
 import eu.senla.driver.Driver;
 import eu.senla.general.BaseTest;
-import eu.senla.pageObject.LoginPage;
+import eu.senla.pages.LoginPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
